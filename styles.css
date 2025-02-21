@@ -63,20 +63,21 @@ ul {
     font-size: 1em; /* Larger list size */
 }
 
-.social-links {
+/* Change class name from social-links to links */
+.links {
     display: flex;
     gap: 10px; /* Adjust the gap as needed */
     margin-top: 5px; /* Adjust the margin as needed */
 }
 
-.social-links li {
+.links li {
     display: inline;
     margin: 0; /* Remove margin from list items */
     position: relative;
     padding-left: 10px; /* Space for the bullet */
 }
 
-.social-links li::before {
+.links li::before {
     content: '•';
     color: black; /* Black color for the bullet */
     position: absolute;
@@ -166,7 +167,7 @@ footer {
 .release-content {
     display: flex;
     gap: 10px; /* Adjust the gap as needed */
-    align-items: flex-start;
+    align-items: flex-start; /* Align items at the top */
 }
 
 .release-year {
@@ -175,6 +176,22 @@ footer {
 
 .release-details {
     flex: 1;
+    font-size: 13px; /* Adjust the font size as needed */
+}
+
+.release-link {
+    flex: 0 0 100px; /* Make the link column narrow */
+}
+
+/* Flex container for the installation section */
+.installation-content {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-bottom: 20px; /* Add some space between installation items */
+}
+
+.installation-year {
+    flex: 0 0 50px; /* Make the year column narrow */
 }
 
 /* Hide the hover image by default */
@@ -185,8 +202,8 @@ footer {
 
 .hover-image {
     display: none;
-    height: 400px; /* Set the height to 400 pixels */
-    width: auto;
+    width: 400px; /* Set the width to 400 pixels */
+    height: auto;
     position: absolute;
     top: -450px; /* Position it above the sub-sub-header */
     left: 50%; /* Center it horizontally */
