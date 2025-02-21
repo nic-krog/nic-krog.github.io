@@ -1,0 +1,199 @@
+/* Reset some default styles */
+body, h1, h2, p, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 1.6;
+    padding: 20px;
+    font-size: 14px; /* Larger base font size */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 10px; /* Reduce the margin-bottom to remove space */
+    position: fixed; /* Fix the header position */
+    width: 100%; /* Make the header full width */
+    top: 0; /* Position it at the top */
+    z-index: 1000; /* Ensure it stays on top */
+    padding: 10px 0; /* Add some padding */
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.header-image {
+    width: 200px; /* Adjust the width */
+    height: auto;
+    pointer-events: auto; /* Allow clicks on the image */
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px; /* Further reduce padding to remove space */
+}
+
+h1, h2 {
+    color: #333;
+    font-size: 1.75em; /* Larger heading size */
+}
+
+h3 {
+    font-size: 1.5em; /* Subheader size */
+    color: #666;
+}
+
+h4.sub-sub-header {
+    font-size: 1.25em; /* Sub-sub-header size */
+    color: #666;
+    position: relative;
+    margin-bottom: 10px; /* Add margin to ensure consistent spacing */
+}
+
+p {
+    margin-bottom: 20px;
+    font-size: 1em; /* Larger paragraph size */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em; /* Larger list size */
+}
+
+.social-links {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+    margin-top: 5px; /* Adjust the margin as needed */
+}
+
+.social-links li {
+    display: inline;
+    margin: 0; /* Remove margin from list items */
+    position: relative;
+    padding-left: 10px; /* Space for the bullet */
+}
+
+.social-links li::before {
+    content: '•';
+    color: black; /* Black color for the bullet */
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+a {
+    color: blue; /* Standard blue color for links */
+    text-decoration: none;
+    font-size: 1em; /* Larger link size */
+}
+
+a:visited {
+    color: blue; /* Standard blue color for visited links */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1em; /* Larger footer size */
+    color: #666;
+}
+
+/* Additional styles to reduce space before the links */
+#about p:last-of-type {
+    margin-bottom: 5px; /* Adjust the margin as needed */
+}
+
+/* Add styles to control the size and center the image */
+#about img {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjust the max height as needed */
+    display: block;
+    margin: 0 auto; /* Center the image */
+}
+
+/* Flex container for the about section */
+.about-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-content img {
+    max-width: 200px; /* Adjust the max width as needed */
+    height: auto;
+}
+
+/* Flex container for the work section */
+.work-content {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-bottom: 20px; /* Add some space between work items */
+}
+
+.work-column {
+    flex: 1;
+}
+
+.work-column img {
+    width: 200px; /* Set the width to 200 pixels */
+    height: auto;
+}
+
+/* Flex container for the release section */
+.release-content {
+    display: flex;
+    gap: 10px; /* Adjust the gap as needed */
+    align-items: flex-start;
+}
+
+.release-year {
+    flex: 0 0 50px; /* Make the year column narrow */
+}
+
+.release-details {
+    flex: 1;
+}
+
+/* Hide the hover image by default */
+.hover-image-container {
+    position: relative;
+    margin-bottom: 10px; /* Ensure consistent spacing */
+}
+
+.hover-image {
+    display: none;
+    height: 400px; /* Set the height to 400 pixels */
+    width: auto;
+    position: absolute;
+    top: -450px; /* Position it above the sub-sub-header */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it horizontally */
+}
+
+/* Show the hover image when hovering over the sub-sub-header */
+.sub-sub-header:hover + .hover-image-container .hover-image {
+    display: block;
+}
