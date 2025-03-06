@@ -28,6 +28,10 @@ header {
     pointer-events: auto; /* Allow clicks on the image */
 }
 
+header a, header img {
+    pointer-events: auto;
+}
+
 main {
     max-width: 800px;
     margin: 0 auto;
@@ -37,18 +41,25 @@ main {
 h1, h2 {
     color: #333;
     font-size: 1.75em; /* Larger heading size */
+    position: relative;
+    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
+    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
 }
 
 h3 {
     font-size: 1.5em; /* Subheader size */
     color: #666;
+    position: relative;
+    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
+    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
 }
 
-h4.sub-sub-header {
-    font-size: 1.25em; /* Sub-sub-header size */
-    color: #666;
+h4 {
+    font-size: 1.25em;
+    color: #000000;
     position: relative;
-    margin-bottom: 10px; /* Add margin to ensure consistent spacing */
+    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
+    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
 }
 
 p {
@@ -99,6 +110,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.highlight {
+    background-color: black; /* Black background color */
+    color: white; /* Ensure the text is readable */
+    padding: 0 2px; /* Add some padding to the highlight */
+}
+
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -111,10 +128,24 @@ a:hover {
 }
 
 footer {
+    width: 100%;
+    background-color: white; /* Adjust the background color as needed */
     text-align: center;
-    margin-top: 20px;
-    font-size: 1em; /* Larger footer size */
-    color: #666;
+    position: fixed;
+    bottom: 10px; /* Adjust the position as needed */
+    right: 100px; /* Move the image 200px from the right margin */
+    z-index: 1002; /* Ensure it stays on top */
+}
+
+footer a, footer img {
+    pointer-events: auto; /* Ensure links and images inside the footer are clickable */
+}
+
+footer img {
+    position: absolute;
+    bottom: 10px; /* Adjust the position as needed */
+    right: 10px; /* Adjust the position as needed */
+    z-index: 1002; /* Ensure it stays on top */
 }
 
 /* Additional styles to reduce space before the links */
@@ -170,8 +201,8 @@ footer {
     align-items: flex-start; /* Align items at the top */
 }
 
-.release-year {
-    flex: 0 0 50px; /* Make the year column narrow */
+.year {
+    width: 125px; /* Set the fixed width */
 }
 
 .release-details {
@@ -191,10 +222,45 @@ footer {
 }
 
 .installation-year {
-    flex: 0 0 50px; /* Make the year column narrow */
+    width: 125px; /* Set the fixed width */
 }
 
-/* Hide the hover image by default */
+/* Flex container for the installation section */
+.residency-content {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+    margin-bottom: 20px; /* Add some space between installation items */
+}
+
+.residency-year {
+    width: 125px; /* Set the fixed width */
+}
+
+/* Flex container for the live shows section */
+.live-shows-container {
+    display: flex;
+    gap: 20px; /* Adjust the gap as needed */
+}
+
+.live-shows-year-column {
+    width: 125px; /* Set the fixed width */
+    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
+    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
+}
+
+.live-shows-details-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Remove the gap between live show details */
+}
+
+.live-shows-details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0; /* Remove the margin between details */
+}
+
 .hover-image-container {
     position: relative;
     margin-bottom: 10px; /* Ensure consistent spacing */
@@ -204,13 +270,23 @@ footer {
     display: none;
     width: 400px; /* Set the width to 400 pixels */
     height: auto;
-    position: absolute;
-    top: -450px; /* Position it above the sub-sub-header */
+    position: fixed;
+    top: 50%; /* Position it in the middle of the screen */
     left: 50%; /* Center it horizontally */
-    transform: translateX(-50%); /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Center it both horizontally and vertically */
+    z-index: 1000; /* Ensure it stays on top */
 }
 
 /* Show the hover image when hovering over the sub-sub-header */
 .sub-sub-header:hover + .hover-image-container .hover-image {
     display: block;
+}
+
+.background-image {
+    position: fixed;
+    top: 325px; /* Distance from the top */
+    left: 125px; /* Distance from the left margin */
+    width: 200px; /* Width */
+    height: auto; /* Auto height */
+    z-index: -1; /* Ensure it stays behind other content */
 }
