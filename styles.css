@@ -1,292 +1,309 @@
-/* Reset some default styles */
+/* ==================== */
+/* Reset and Base Styles */
+/* ==================== */
 body, h1, h2, p, ul {
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    font-size: 14px; /* Larger base font size */
+    font-size: 14px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 10px; /* Reduce the margin-bottom to remove space */
-    position: fixed; /* Fix the header position */
-    width: 100%; /* Make the header full width */
-    top: 0; /* Position it at the top */
-    z-index: 1000; /* Ensure it stays on top */
-    padding: 10px 0; /* Add some padding */
-    pointer-events: none; /* Allow clicks to pass through */
-}
-
-.header-image {
-    width: 200px; /* Adjust the width */
-    height: auto;
-    pointer-events: auto; /* Allow clicks on the image */
-}
-
-header a, header img {
-    pointer-events: auto;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding-top: 60px; /* Further reduce padding to remove space */
-}
-
+/* ==================== */
+/* Typography */
+/* ==================== */
 h1, h2 {
     color: #333;
-    font-size: 1.75em; /* Larger heading size */
-    position: relative;
-    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
-    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
+    font-size: 1.75em;
+    margin-top: 0;
+    margin-bottom: 15px;
 }
 
 h3 {
-    font-size: 1.5em; /* Subheader size */
+    font-size: 1.5em;
     color: #666;
-    position: relative;
-    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
-    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 h4 {
     font-size: 1.25em;
     color: #000000;
-    position: relative;
-    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
-    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.year h4 {
+    font-weight: normal; /* Make years regular (not bold) */
 }
 
 p {
     margin-bottom: 20px;
-    font-size: 1em; /* Larger paragraph size */
+    font-size: 1em;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1em; /* Larger list size */
+.small-text {
+    font-size: 1em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.2;
 }
 
-/* Change class name from social-links to links */
-.links {
-    display: flex;
-    gap: 10px; /* Adjust the gap as needed */
-    margin-top: 5px; /* Adjust the margin as needed */
-}
-
-.links li {
-    display: inline;
-    margin: 0; /* Remove margin from list items */
-    position: relative;
-    padding-left: 10px; /* Space for the bullet */
-}
-
-.links li::before {
-    content: '•';
-    color: black; /* Black color for the bullet */
-    position: absolute;
-    left: 0;
-    top: 0;
-}
-
+/* ==================== */
+/* Links */
+/* ==================== */
 a {
-    color: blue; /* Standard blue color for links */
+    color: blue;
     text-decoration: none;
-    font-size: 1em; /* Larger link size */
+    font-size: inherit; /* Inherit font size from parent */
+    line-height: inherit; /* Inherit line height from parent */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
 }
 
 a:visited {
-    color: blue; /* Standard blue color for visited links */
+    color: blue;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.highlight {
-    background-color: black; /* Black background color */
-    color: white; /* Ensure the text is readable */
-    padding: 0 2px; /* Add some padding to the highlight */
-}
-
-.gallery {
+/* Default .links (no margin-top) */
+.links {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
 }
 
-.gallery img {
-    max-width: 100%;
-    height: auto;
+/* .links inside the "about" section (with margin-top) */
+#about .links {
+    margin-top: 18px; /* Apply margin-top only in the about section */
 }
 
-footer {
-    width: 100%;
-    background-color: white; /* Adjust the background color as needed */
-    text-align: center;
-    position: fixed;
-    bottom: 10px; /* Adjust the position as needed */
-    right: 100px; /* Move the image 200px from the right margin */
-    z-index: 1002; /* Ensure it stays on top */
+.links li {
+    display: inline;
+    margin: 0;
+    position: relative;
+    padding-left: 10px;
 }
 
-footer a, footer img {
-    pointer-events: auto; /* Ensure links and images inside the footer are clickable */
-}
-
-footer img {
+.links li::before {
+    content: '•';
+    color: black;
     position: absolute;
-    bottom: 10px; /* Adjust the position as needed */
-    right: 10px; /* Adjust the position as needed */
-    z-index: 1002; /* Ensure it stays on top */
+    left: 0;
+    top: 0;
 }
 
-/* Additional styles to reduce space before the links */
+/* ==================== */
+/* Header */
+/* ==================== */
+header {
+    text-align: center;
+    margin-bottom: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    pointer-events: none;
+}
+
+.header-image {
+    width: 200px;
+    height: auto;
+    pointer-events: auto;
+}
+
+header a, header img {
+    pointer-events: auto;
+}
+
+/* ==================== */
+/* Main Content */
+/* ==================== */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+}
+
+.year-column {
+    width: 125px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.details-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Consistent spacing between entries */
+}
+
+.container:last-child .details {
+    margin-bottom: 0; /* Ensure no extra margin on the last element */
+}
+
+/* ==================== */
+/* About Section */
+/* ==================== */
 #about p:last-of-type {
-    margin-bottom: 5px; /* Adjust the margin as needed */
+    margin-bottom: 5px;
 }
 
-/* Add styles to control the size and center the image */
 #about img {
     max-width: 100%;
     height: auto;
-    max-height: 400px; /* Adjust the max height as needed */
+    max-height: 400px;
     display: block;
-    margin: 0 auto; /* Center the image */
+    margin: 0 auto;
 }
 
-/* Flex container for the about section */
 .about-content {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Adjust the gap as needed */
+    gap: 20px;
 }
 
 .about-text {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 0;
 }
 
 .about-content img {
-    max-width: 200px; /* Adjust the max width as needed */
+    max-width: 200px;
     height: auto;
 }
 
-/* Flex container for the work section */
-.work-content {
-    display: flex;
-    gap: 20px; /* Adjust the gap as needed */
-    margin-bottom: 20px; /* Add some space between work items */
+/* ==================== */
+/* Footer */
+/* ==================== */
+footer {
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    right: 50px;
+    z-index: 1002;
 }
 
-.work-column {
-    flex: 1;
+footer a, footer img {
+    pointer-events: auto;
 }
 
-.work-column img {
-    width: 200px; /* Set the width to 200 pixels */
-    height: auto;
+footer img {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 1002;
 }
 
-/* Flex container for the release section */
-.release-content {
-    display: flex;
-    gap: 10px; /* Adjust the gap as needed */
-    align-items: flex-start; /* Align items at the top */
+.footer-image {
+    opacity: 0; /* Start invisible */
+    animation: fadeInOut 3s infinite; /* 3 seconds for one cycle, infinite loop */
 }
 
-.year {
-    width: 125px; /* Set the fixed width */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0; /* Start invisible */
+    }
+    50% {
+        opacity: 1; /* Fade in */
+    }
+    100% {
+        opacity: 0; /* Fade out */
+    }
 }
 
-.release-details {
-    flex: 1;
-    font-size: 13px; /* Adjust the font size as needed */
-}
-
-.release-link {
-    flex: 0 0 100px; /* Make the link column narrow */
-}
-
-/* Flex container for the installation section */
-.installation-content {
-    display: flex;
-    gap: 20px; /* Adjust the gap as needed */
-    margin-bottom: 20px; /* Add some space between installation items */
-}
-
-.installation-year {
-    width: 125px; /* Set the fixed width */
-}
-
-/* Flex container for the installation section */
-.residency-content {
-    display: flex;
-    gap: 20px; /* Adjust the gap as needed */
-    margin-bottom: 20px; /* Add some space between installation items */
-}
-
-.residency-year {
-    width: 125px; /* Set the fixed width */
-}
-
-/* Flex container for the live shows section */
-.live-shows-container {
-    display: flex;
-    gap: 20px; /* Adjust the gap as needed */
-}
-
-.live-shows-year-column {
-    width: 125px; /* Set the fixed width */
-    margin-top: 0px; /* Add margin to ensure consistent spacing */ 
-    margin-bottom: 0px; /* Add margin to ensure consistent spacing */
-}
-
-.live-shows-details-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 0; /* Remove the gap between live show details */
-}
-
-.live-shows-details {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 0; /* Remove the margin between details */
-}
-
+/* ==================== */
+/* Images and Effects */
+/* ==================== */
 .hover-image-container {
-    position: relative;
-    margin-bottom: 10px; /* Ensure consistent spacing */
+    position: absolute;
+    visibility: hidden;
 }
 
 .hover-image {
     display: none;
-    width: 400px; /* Set the width to 400 pixels */
-    height: auto;
     position: fixed;
-    top: 50%; /* Position it in the middle of the screen */
-    left: 50%; /* Center it horizontally */
-    transform: translate(-50%, -50%); /* Center it both horizontally and vertically */
-    z-index: 1000; /* Ensure it stays on top */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    pointer-events: none;
 }
 
-/* Show the hover image when hovering over the sub-sub-header */
-.sub-sub-header:hover + .hover-image-container .hover-image {
+.sub-header:hover + .hover-image-container .hover-image {
     display: block;
+    visibility: visible;
 }
 
 .background-image {
     position: fixed;
-    top: 325px; /* Distance from the top */
-    left: 125px; /* Distance from the left margin */
-    width: 200px; /* Width */
-    height: auto; /* Auto height */
-    z-index: -1; /* Ensure it stays behind other content */
+    top: 510px;
+    right: 200px;
+    width: 200px;
+    height: auto;
+    z-index: -1;
+}
+
+/* ==================== */
+/* Sections */
+/* ==================== */
+section {
+    margin-bottom: 40px; /* Adjust this value as needed */
+}
+
+.highlight {
+    background-color: black;
+    color: white;
+    padding: 0 2px;
+}
+
+/* Pop-up styles */
+.popup {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2000; /* Ensure it stays on top */
+}
+
+.popup.visible {
+    display: block; /* Show the pop-up */
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
 }
