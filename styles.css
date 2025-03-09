@@ -290,7 +290,7 @@ section {
     transform: translate(-50%, -50%);
     width: 300px;
     padding: 20px;
-    background-color: blue;
+    background-color: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 2000; /* Ensure it stays on top */
 }
