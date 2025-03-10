@@ -299,6 +299,7 @@ section {
     font-size: 4em; /* Increase font size */
     text-align: center; /* Center the text */
     color: white; /* Change text color to white */
+    position: relative; /* Ensure the close button is positioned relative to the pop-up */
 }
 
 .popup.visible {
@@ -307,8 +308,9 @@ section {
 
 .popup .close-btn {
     position: absolute;
-    top: 40px; /* Increase top position */
-    right: 40px; /* Increase right position */
+    top: 20px; /* Adjust top position */
+    left: 50%; /* Center the close button */
+    transform: translateX(-50%); /* Center the close button */
     cursor: pointer;
     font-size: 4em; /* Increase font size */
     font-weight: bold;
