@@ -1,7 +1,8 @@
+// Handle hover effects for sub-headers
 document.addEventListener('DOMContentLoaded', function () {
-    const subSubHeaders = document.querySelectorAll('.sub-header');
+    const subHeaders = document.querySelectorAll('.sub-header');
 
-    subSubHeaders.forEach(header => {
+    subHeaders.forEach(header => {
         let hoverTimeout;
 
         header.addEventListener('mouseenter', function () {
@@ -26,27 +27,46 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
+    // Handle the mobile popup
     const popup = document.getElementById('popup');
     const closeBtn = document.getElementById('close-btn');
 
-    // Check if the screen width is less than or equal to 768px (common breakpoint for mobile devices)
-    if (window.innerWidth <= 768) {
-        // Show the pop-up after the page loads
-        popup.classList.add('visible');
+    console.log('DOM fully loaded and parsed');
+    console.log('Window inner width:', window.innerWidth);
+
+    // Function to show the popup
+    function showPopup() {
+        if (window.innerWidth <= 768) {
+            console.log('Mobile device detected. Showing popup.');
+            popup.classList.add('visible');
+        } else {
+            console.log('Desktop device detected. Popup hidden.');
+        }
     }
 
-    // Close the pop-up when the close button is clicked
-    closeBtn.addEventListener('click', function() {
+    // Function to hide the popup
+    function hidePopup() {
+        console.log('Closing popup.');
         popup.classList.remove('visible');
+    }
+
+    // Show the popup on page load if the screen width is <= 768px
+    showPopup();
+
+    // Close the popup when the close button is clicked
+    closeBtn.addEventListener('click', hidePopup);
+
+    // Close the popup when the ESC key is pressed
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            hidePopup();
+        }
     });
 
-    // Close the pop-up when the ESC key is pressed
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            popup.classList.remove('visible');
-        }
+    // Optional: Re-check screen width on window resize
+    window.addEventListener('resize', function () {
+        console.log('Window resized. New width:', window.innerWidth);
+        showPopup(); // Re-evaluate whether to show the popup
     });
 });
