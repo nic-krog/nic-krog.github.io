@@ -291,12 +291,12 @@ section {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%; /* Adjust width for mobile devices */
-    max-width: 400px; /* Maximum width */
-    padding: 20px;
+    max-width: 600px; /* Increase maximum width */
+    padding: 40px; /* Increase padding */
     background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increase shadow for better visibility */
     z-index: 2000; /* Ensure it stays on top */
-    font-size: 1.2em; /* Larger font size for mobile devices */
+    font-size: 2em; /* Increase font size */
     text-align: center; /* Center the text */
 }
 
@@ -306,10 +306,10 @@ section {
 
 .popup .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px; /* Increase top position */
+    right: 20px; /* Increase right position */
     cursor: pointer;
-    font-size: 1.5em; /* Larger close button */
+    font-size: 2em; /* Increase font size */
     font-weight: bold;
     color: #333;
 }
