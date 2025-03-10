@@ -11,6 +11,7 @@ body {
     line-height: 1.6;
     padding: 20px;
     font-size: 14px;
+    min-width: 900px;
 }
 
 /* ==================== */
@@ -77,6 +78,7 @@ a:hover {
 .links {
     display: flex;
     gap: 10px;
+    min-width: 90px;
 }
 
 /* .links inside the "about" section (with margin-top) */
