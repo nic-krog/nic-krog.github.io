@@ -81,7 +81,7 @@ a:hover {
 
 /* .links inside the "about" section (with margin-top) */
 #about .links {
-    margin-top: 19px; /* Apply margin-top only in the about section */
+    margin-top: 20px; /* Apply margin-top only in the about section */
 }
 
 .links li {
