@@ -1,7 +1,7 @@
 /* ==================== */
 /* Reset and Base Styles */
 /* ==================== */
-body, h1, h2, p, ul {
+body, h1, h2, h3, h4, p, ul {
     margin: 0;
     padding: 0;
 }
@@ -11,7 +11,6 @@ body {
     line-height: 1.6;
     padding: 20px;
     font-size: 14px;
-    min-width: 900px;
 }
 
 /* ==================== */
@@ -20,26 +19,23 @@ body {
 h1, h2 {
     color: #333;
     font-size: 1.75em;
-    margin-top: 0;
     margin-bottom: 15px;
 }
 
 h3 {
     font-size: 1.5em;
     color: #666;
-    margin-top: 0;
     margin-bottom: 0;
 }
 
 h4 {
     font-size: 1.25em;
-    color: #000000;
-    margin-top: 0;
+    color: #000;
     margin-bottom: 0;
 }
 
 .year h4 {
-    font-weight: normal; /* Make years regular (not bold) */
+    font-weight: normal;
 }
 
 p {
@@ -49,7 +45,6 @@ p {
 
 .small-text {
     font-size: 1em;
-    margin-top: 0;
     margin-bottom: 10px;
     line-height: 1.2;
 }
@@ -60,10 +55,6 @@ p {
 a {
     color: blue;
     text-decoration: none;
-    font-size: inherit; /* Inherit font size from parent */
-    line-height: inherit; /* Inherit line height from parent */
-    margin: 0; /* Remove default margins */
-    padding: 0; /* Remove default padding */
 }
 
 a:visited {
@@ -74,21 +65,18 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Default .links (no margin-top) */
 .links {
     display: flex;
     gap: 10px;
     min-width: 90px;
 }
 
-/* .links inside the "about" section (with margin-top) */
 #about .links {
-    margin-top: 20px; /* Apply margin-top only in the about section */
+    margin-top: 20px;
 }
 
 .links li {
     display: inline;
-    margin: 0;
     position: relative;
     padding-left: 10px;
 }
@@ -106,7 +94,6 @@ a:hover {
 /* ==================== */
 header {
     text-align: center;
-    margin-bottom: px;
     position: fixed;
     width: 95%;
     top: 10px;
@@ -141,8 +128,6 @@ main {
 
 .year-column {
     width: 125px;
-    margin-top: 0;
-    margin-bottom: 0;
 }
 
 .details-column {
@@ -155,11 +140,11 @@ main {
 .details {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px; /* Consistent spacing between entries */
+    margin-bottom: 20px;
 }
 
 .container:last-child .details {
-    margin-bottom: 0; /* Ensure no extra margin on the last element */
+    margin-bottom: 0;
 }
 
 /* ==================== */
@@ -188,7 +173,6 @@ main {
     display: flex;
     flex-direction: column;
     gap: 0;
-    margin-bottom: 0;
 }
 
 .about-content img {
@@ -207,10 +191,7 @@ footer {
     bottom: 125px;
     right: 200px;
     z-index: 1002;
-}
-
-footer a, footer img {
-    pointer-events: auto;
+    display: block;
 }
 
 footer img {
@@ -221,21 +202,30 @@ footer img {
 }
 
 .footer-image {
-    opacity: 0; /* Start invisible */
-    animation: fadeInOut 3s infinite; /* 3 seconds for one cycle, infinite loop */
-    z-index: 1002; /* Ensure it stays below the hover-images */
+    opacity: 0;
+    animation: fadeInOut 3s infinite;
+    z-index: 1002;
 }
 
 @keyframes fadeInOut {
-    0% {
-        opacity: 0; /* Start invisible */
-    }
-    50% {
-        opacity: 1; /* Fade in */
-    }
-    100% {
-        opacity: 0; /* Fade out */
-    }
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* ==================== */
+/* Mobile Footer Section */
+/* ==================== */
+#mobile-footer {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+#mobile-footer .footer-image-mobile {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
 }
 
 /* ==================== */
@@ -274,7 +264,7 @@ footer img {
 /* Sections */
 /* ==================== */
 section {
-    margin-bottom: 40px; /* Adjust this value as needed */
+    margin-bottom: 40px;
 }
 
 .highlight {
@@ -285,42 +275,194 @@ section {
 
 /* Popup styles */
 .popup {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; /* Adjust width for mobile devices */
-    max-width: 1200px; /* Increase maximum width */
-    padding: 40px; /* Reduce padding for a cleaner look */
-    background-color: rgba(0, 0, 0, 0.9); /* Dark background with transparency */
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Light shadow for contrast */
-    z-index: 2000; /* Ensure it stays on top */
-    font-size: 4em; /* Increase font size to 4em */
-    text-align: center; /* Center the text */
-    color: white; /* White text for contrast */
-    border-radius: 10px; /* Rounded corners */
+    width: 90%;
+    max-width: 1200px;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    z-index: 2000;
+    font-size: 4em;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
 }
 
 .popup.visible {
-    display: block; /* Show the pop-up */
+    display: block;
 }
 
 .popup .close-btn {
     position: absolute;
-    top: -150px; /* Move the button further above the popup */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust for exact centering */
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
     cursor: pointer;
-    font-size: 3em; /* Increase font size to 4em */
+    font-size: 3em;
     font-weight: bold;
-    color: black; /* Black color for the close button */
-    background-color: transparent; /* No background */
-    border: none; /* Remove border */
-    padding: 0; /* Remove padding */
-    line-height: 1; /* Center the "×" vertically */
+    color: black;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    line-height: 1;
 }
 
 .popup .close-btn:hover {
-    color: #555; /* Slightly lighter black on hover */
+    color: #555;
+}
+
+/* ==================== */
+/* Mobile-specific styles */
+/* ==================== */
+@media (max-width: 768px) {
+    /* Fix for hover images to maintain aspect ratio */
+    .hover-image-container.active .hover-image {
+        max-width: 90%;
+        max-height: 90%;
+        width: auto !important;
+        height: auto !important;
+        object-fit: contain;
+    }
+
+    /* Hide desktop footer on mobile */
+    footer {
+        display: none !important;
+    }
+    
+    /* Show mobile footer on mobile */
+    #mobile-footer {
+        display: block;
+    }
+
+    /* Extreme space reduction between About and mobile footer */
+    #about {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    #about .about-content {
+        gap: 5px;
+    }
+    
+    #about .about-text {
+        gap: 5px;
+    }
+    
+    #about p {
+        margin-bottom: 8px;
+        line-height: 1.4;
+    }
+    
+    #about .links {
+        margin-top: 8px;
+        margin-bottom: 0;
+    }
+    
+    #mobile-footer {
+        margin-top: -5px;
+    }
+
+    .hover-image-container {
+        display: none;
+    }
+
+    .hover-image-container.active {
+        display: block;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2000;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        z-index: 1999;
+    }
+
+    .overlay.active {
+        display: block;
+    }
+
+    /* About Section Adjustments */
+    #about .about-content {
+        flex-direction: column;
+    }
+
+    #about img {
+        order: 1;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    #about .about-content .links {
+        order: 3;
+    }
+
+    #about .about-content .about-text {
+        order: 2;
+        margin-top: 5px;
+    }
+
+    #about h2 {
+        display: none;
+    }
+
+    #Releases .links {
+        display: none;
+    }
+
+    .small-text-link {
+        display: block;
+        font-size: 1em;
+        margin-bottom: 8px;
+        line-height: 1.2;
+        color: blue;
+        text-decoration: none;
+    }
+
+    .small-text-link:hover {
+        text-decoration: underline;
+    }
+
+    #Releases .small-text {
+        margin-bottom: 5px;
+    }
+
+    .header-image {
+        width: 75%;
+        height: auto;
+    }
+}
+
+@media (min-width: 769px) {
+    /* Ensure mobile footer is hidden on desktop */
+    #mobile-footer {
+        display: none;
+    }
+
+    /* Hide mobile-specific elements on desktop */
+    .small-text-link {
+        display: none;
+    }
+
+    #about .footer-image-mobile {
+        display: none;
+    }
 }
