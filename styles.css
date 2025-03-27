@@ -480,3 +480,84 @@ section {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    /* Regular black bullet as text element */
+    .sub-header.has-image::before {
+        content: '\2022\00a0'; /* Unicode bullet + space */
+        display: inline;
+        color: black;
+        font-size: 1em; /* Match text size */
+        vertical-align: baseline;
+        margin-right: 3px;
+    }
+
+    /* Clean removal of all previous styles */
+    .sub-header.has-image {
+        padding-left: 0 !important;
+        text-indent: 0 !important;
+        position: static !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Bullet for small-text-links */
+    .small-text-link {
+        position: relative;
+        padding-left: 15px;
+    }
+    
+    .small-text-link::before {
+        content: '\2022'; /* Bullet character */
+        position: absolute;
+        left: 5px;
+        color: black;
+        font-size: 1em; /* Matches link text size */
+    }
+
+    /* Adjust spacing for better alignment */
+    .small-text-link {
+        display: inline-block;
+        margin-left: -5px; /* Compensate for bullet space */
+    }
+}
+
+/* Hide desktop links on mobile */
+@media (max-width: 768px) {
+    #about .links {
+        display: none !important;
+    }
+    
+    /* Show mobile links container */
+    #about .mobile-links {
+        display: block;
+        margin-top: 15px;
+    }
+}
+
+/* Hide mobile links on desktop */
+@media (min-width: 769px) {
+    #about .mobile-links {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Black text for all sub-headers */
+    .sub-header {
+        color: black !important; /* Force black text */
+    }
+
+    /* Blue bullets for tappable items */
+    .sub-header.has-image::before {
+        color: rgb(0, 0, 0) !important; /* Your link blue */
+        font-size: 1em;
+        content: '\2022\00a0'; /* Bullet + space */
+        margin-right: 3px;
+    }
+
+    /* Non-tappable items get normal styling */
+    .sub-header:not(.has-image)::before {
+        display: none;
+    }
+}
