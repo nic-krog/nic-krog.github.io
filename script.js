@@ -109,3 +109,16 @@ if (popup && closeBtn) {
         showPopup(); // Re-evaluate whether to show the popup
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const subHeaders = document.querySelectorAll('.sub-header');
+    
+    subHeaders.forEach(header => {
+        const hoverImage = header.nextElementSibling?.querySelector('.hover-image');
+        if (hoverImage && hoverImage.src) { // Check if image actually exists
+            header.classList.add('has-image');
+        }
+    });
+    
+    // Rest of your existing JavaScript...
+});
